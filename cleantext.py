@@ -1,10 +1,8 @@
 import json
 import os
 import nltk
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 import string
+from text_preprocessing import *
 
 def get_users():
     path = "/Users/emilyyu/Desktop/Exercises/final_project_json"
@@ -14,31 +12,15 @@ def get_users():
             tweeters.append(os.path.splitext(file)[0])
     return tweeters
 
-def clean_tweet_bag(tweet: str) -> list:
-    # split tweet by whitespace to get tokens
-    tweet_tokens = tweet.split()
-
-    # filter out links
-    # tweet_tokens = [token for token in tweet_tokens if (token[:3] != "http" and token[:2] != "\\u")]
-    tweet_tokens = [token for token in tweet_tokens if (token[:3] != "http")]
-
-    # filter out punctuation
-    # tweet_tokens = [token for token in tweet_tokens if token.isalpha()]
-    table = str.maketrans('', '', string.punctuation)
-    tweet_tokens = [word.translate(table) for word in tweet_tokens]
-    # normalize case
-    tweet_tokens = [token.lower() for token in tweet_tokens]
-    # filter out stop words
-    # create a set of stop words
-    stop_words = set(stopwords.words("english"))
-    # filter out
-    tweet_tokens = [token for token in tweet_tokens if not token in stop_words]
-    # stem the text
-    porter = PorterStemmer()
-    tweet_tokens = [porter.stem(word) for word in tweet_tokens]
-    
-    # also need to remove links, @'s, emojis, 
-    return tweet_tokens
+def clean_tweet(text):
+    remove_URL(text)
+    remove_non_ascii(text)
+    to_lowercase(text)
+    remove_punctuation(text)
+    replace_numbers(text)
+    remove_stopwords(text)
+    #preprocess(text)
+    return text
 
 #keys: data (contain all the tweets), meta (tells other information)
 #dictionary[0] 1/30 tweets
@@ -54,7 +36,7 @@ def get_user_tweets(user):
             if 'data' in dictionary[i]:
                 for j in range(len(dictionary[i]['data'])):
                     tweet = dictionary[i]['data'][j]['text']
-                    clean_bag_tweet(tweet)
+                    clean_tweet(tweet)
                     user_tweets.append(tweet)
     return user_tweets
 
@@ -69,9 +51,13 @@ def get_tweets(user_dictionary):
 
 def main():
     #get_users()
-    #get_user_tweets('@barackobama.json')   
-    user_dictionary = {}
+    #print(get_user_tweets('@barackobama')) 
+    print('Tune in at 11:35 a.m. ET to watch the President deliver a commencement speech at the U.S. Coast Guard Academy: http://t.co/0CUMi3p5BU')
+    print(clean_tweet('Tune in at 11:35 a.m. ET to watch the President deliver a commencement speech at the U.S. Coast Guard Academy: http://t.co/0CUMi3p5BU'))  
+    #user_dictionary = {}
     #get_tweets(user_dictionary)
+    
+
 
 if __name__ == "__main__":
     main()

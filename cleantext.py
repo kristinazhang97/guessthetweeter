@@ -59,11 +59,32 @@ def all_words():
                     all_words.add(word)
     return all_words 
 
-#def create_dataframe():
+def get_tuples():
+    list_tuples = []
+    with open(f"/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json") as f:
+        dictionary = json.load(f)
+        for user in dictionary:
+            for tweet in dictionary[user]:
+                #making the tweet a string
+                string_tweet = ""
+                for word in tweet:
+                    string_tweet += word + " "
+                user_tuple = (user, string_tweet)
+                list_tuples.append(user_tuple)
+    return list_tuples
+    
+
+def create_dataframe(all_words, list_tuples):
+    data = pd.DataFrame(dictionary.values(), columns = all_words, index = list_tuples)
+    #DATA MAKE DICTIONARY 
+    #INDEX = LIST OF THE TUPLES
+    #print(data)
+    #data.to_csv("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_matrix.csv")
 
 
 def main():
-    print(all_words())
+    #print(all_words())
+    print(get_tuples()[500])
     #all_words = {}
     #all_words = all_words(all_words, user_dictionary)
     #print(all_words)

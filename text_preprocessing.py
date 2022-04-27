@@ -12,7 +12,7 @@ def replace_contractions(text):
 
 def remove_URL(sample):
     """Remove URLs from a sample string"""
-    return re.sub(r"http", "", sample) #\S+
+    return re.sub(r"http\S+|@\S+", "", sample)
 
 def remove_non_ascii(words):
     """Remove non-ASCII characters from list of tokenized words"""

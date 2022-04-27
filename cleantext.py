@@ -65,14 +65,26 @@ def get_tuples():
         dictionary = json.load(f)
         for user in dictionary:
             for tweet in dictionary[user]:
-                #making the tweet a string
-                string_tweet = ""
-                for word in tweet:
-                    string_tweet += word + " "
-                user_tuple = (user, string_tweet)
+                user_tuple = (user, tweet)
                 list_tuples.append(user_tuple)
     return list_tuples
-    
+
+#iterating through the tuples
+#creating a list of lists of the frequencies of the words in the tweets
+def create_word_matrix(user_tuples, all_words):
+    user_matrix = []
+    for users in user_tuples:
+        tweet = users[1]
+        tweet_matrix = []
+
+        for word in all_words:
+            if word in tweet:
+                tweet_matrix.append(1)
+            else:
+                tweet_matrix.append(0)
+        user_matrix.append(tweet_matrix)
+    return user_matrix
+        
 
 def create_dataframe(all_words, list_tuples):
     data = pd.DataFrame(dictionary.values(), columns = all_words, index = list_tuples)
@@ -83,11 +95,14 @@ def create_dataframe(all_words, list_tuples):
 
 
 def main():
-    #print(all_words())
-    print(get_tuples()[500])
-    #all_words = {}
-    #all_words = all_words(all_words, user_dictionary)
-    #print(all_words)
+    words = all_words()
+    tuples_list = get_tuples()
+    print(get_tuples()[5])
+    
+    for number in create_word_matrix(tuples_list[5], words):
+        for num in number:
+            if num == 1:
+                print(1)
 
     #print(get_user_tweets('@barackobama')) 
     #user_dictionary = {}

@@ -4,6 +4,7 @@ import nltk
 import string
 from text_preprocessing import *
 from tqdm import tqdm
+from collections import Counter
 
 #returns a list of the 25 tweeter users
 def get_users():
@@ -71,33 +72,28 @@ def get_tuples():
 
 #iterating through the tuples
 #creating a list of lists of the frequencies of the words in the tweets
-def create_word_matrix(user_tuples, all_words):
-    user_matrix = []
-    for users in user_tuples:
-        tweet = users[1]
-        tweet_matrix = []
 
-        for word in all_words: #start line
-            if word in tweet: #second line
-                tweet_matrix.append(1)
-            else:
-                tweet_matrix.append(0)
-        user_matrix.append(tweet_matrix)
-    return user_matrix
+def create_word_matrix(user_tuples, all_words):
+    #user_tuples is a list of tuples with (ID, [list of words in tweet])
+    user_matrix = []
+    for users in tqdm(user_tuples): #iterate through tuples
+        tweet_matrix = {} #values 
+        tweet = Counter(users[1]) # converts into dictionary where keys are words and values are counts
+        for word in all_words:
+            tweet_matrix[word] = 0
+            if word in tweet:
+                tweet_matrix[word] = tweet[word]
+        user_matrix.append(list(tweet_matrix.values()))
+    return user_matrix #returns a list of lists
 
 #Checking the word matrix to check if the number of 1's matches the length of the tweet
 def check_matrix(tuples_list, matrix):
     for i  in range(len(tuples_list)):#iterate through tuples
         status = False
         tweet = tuples_list[i][1] #grab the second index of each tuple
-        count = 0
         for num in matrix[i]: #iterate through ith list through each number and count 1
-            if (num >= 1):
-                count += 1
-        if len(tweet) == count: #check if length of tweet is equal to count
-            print(tweet)
-            print(count)
-            status = True
+            if (num>1):
+                print(tweet, num)
     return status
         
 
@@ -110,15 +106,12 @@ def create_dataframe(all_words, list_tuples):
 
 
 def main():
-    words = all_words()
-    tuples_list = get_tuples()
-    
-    #print(check_matrix(tuples_list[800:805], create_word_matrix(tuples_list[800:805], words)))
-
-
-    #print(get_user_tweets('@barackobama')) 
-    #user_dictionary = {}
-    #user_dictionary = get_tweets(user_dictionary)
+    words = all_words() #columns
+    tuples_list = get_tuples() #rows
+    test_list = tuples_list[0:1000]
+    matrix = create_word_matrix(test_list, words)
+    print(check_matrix(test_list, matrix))
+    #create_dataframe(all_words, tuples_list, matrix)
 
     #Saved to a JSON FILE TO WORK ON EASIER
     #with open("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json", "w") as write_file:

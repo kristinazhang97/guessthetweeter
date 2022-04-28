@@ -77,13 +77,28 @@ def create_word_matrix(user_tuples, all_words):
         tweet = users[1]
         tweet_matrix = []
 
-        for word in all_words:
-            if word in tweet:
+        for word in all_words: #start line
+            if word in tweet: #second line
                 tweet_matrix.append(1)
             else:
                 tweet_matrix.append(0)
         user_matrix.append(tweet_matrix)
     return user_matrix
+
+#Checking the word matrix to check if the number of 1's matches the length of the tweet
+def check_matrix(tuples_list, matrix):
+    for i  in range(len(tuples_list)):#iterate through tuples
+        status = False
+        tweet = tuples_list[i][1] #grab the second index of each tuple
+        count = 0
+        for num in matrix[i]: #iterate through ith list through each number and count 1
+            if (num >= 1):
+                count += 1
+        if len(tweet) == count: #check if length of tweet is equal to count
+            print(tweet)
+            print(count)
+            status = True
+    return status
         
 
 def create_dataframe(all_words, list_tuples):
@@ -97,12 +112,9 @@ def create_dataframe(all_words, list_tuples):
 def main():
     words = all_words()
     tuples_list = get_tuples()
-    print(get_tuples()[5])
     
-    for number in create_word_matrix(tuples_list[5], words):
-        for num in number:
-            if num == 1:
-                print(1)
+    #print(check_matrix(tuples_list[800:805], create_word_matrix(tuples_list[800:805], words)))
+
 
     #print(get_user_tweets('@barackobama')) 
     #user_dictionary = {}

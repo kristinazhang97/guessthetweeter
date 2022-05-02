@@ -1,0 +1,125 @@
+@fcbarcelona
+positive: 0.171
+negative: 0.052
+neutral: 0.777
+
+@elonmusk
+positive: 0.301
+negative: 0.145
+neutral: 0.554
+
+@mileycyrus
+positive: 0.195
+negative: 0.119
+neutral: 0.686
+
+@britneyspears
+positive: 0.234
+negative: 0.075
+neutral: 0.691
+
+@ladygaga
+positive: 0.186
+negative: 0.113
+neutral: 0.701
+
+@championsleague
+positive: 0.153
+negative: 0.048
+neutral: 0.799
+
+@youtube
+positive: 0.259
+negative: 0.065
+neutral: 0.676
+
+@kimkardashian
+positive: 0.192
+negative: 0.108
+neutral: 0.7
+
+@cnn
+positive: 0.113
+negative: 0.152
+neutral: 0.735
+
+@ddlovato
+positive: 0.184
+negative: 0.122
+neutral: 0.693
+
+@sportscenter
+positive: 0.103
+negative: 0.086
+neutral: 0.81
+
+@barackobama
+positive: 0.175
+negative: 0.12
+neutral: 0.706
+
+@selenagomez
+positive: 0.192
+negative: 0.092
+neutral: 0.716
+
+@nasa
+positive: 0.13
+negative: 0.045
+neutral: 0.826
+
+@jimmyfallon
+positive: 0.14
+negative: 0.079
+neutral: 0.781
+
+@theellenshow
+positive: 0.185
+negative: 0.092
+neutral: 0.723
+
+@rihanna
+positive: 0.153
+negative: 0.089
+neutral: 0.758
+
+@bbcbreaking
+positive: 0.103
+negative: 0.142
+neutral: 0.756
+
+@twitter
+positive: 0.238
+negative: 0.074
+neutral: 0.688
+
+@cnnbrk
+positive: 0.087
+negative: 0.128
+neutral: 0.785
+
+@kingjames
+positive: 0.172
+negative: 0.124
+neutral: 0.704
+
+@justinbieber
+positive: 0.201
+negative: 0.085
+neutral: 0.715
+
+@nytimes
+positive: 0.106
+negative: 0.143
+neutral: 0.751
+
+@niallofficial
+positive: 0.186
+negative: 0.109
+neutral: 0.705
+
+@katyperry
+positive: 0.17
+negative: 0.095
+neutral: 0.736
+

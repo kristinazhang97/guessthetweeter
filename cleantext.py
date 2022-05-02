@@ -63,8 +63,8 @@ def get_tweets(user_dictionary):
         user_dictionary[user] = tweet_list
     return user_dictionary
 
-
-def all_words(filepath: str="/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json"):
+#returns a set of all the unique words in all of the tweets of the 25 users
+def all_words():
     all_words = set()
     with open(filepath) as f:
         dictionary = json.load(f)
@@ -87,9 +87,7 @@ def get_tuples():
                 list_tuples.append(user_tuple)
     return list_tuples
 
-#iterating through the tuples
-#creating a list of lists of the frequencies of the words in the tweets
-
+#Create a word matrix for each of the users and their tweets
 def create_word_matrix(user_tuples, all_words):
     #user_tuples is a list of tuples with (ID, [list of words in tweet])
     user_matrix = []
@@ -114,12 +112,9 @@ def check_matrix(tuples_list, matrix):
     return status
         
 
-def create_dataframe(all_words, list_tuples):
-    data = pd.DataFrame(dictionary.values(), columns = all_words, index = list_tuples)
-    #DATA MAKE DICTIONARY 
-    #INDEX = LIST OF THE TUPLES
-    #print(data)
-    #data.to_csv("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_matrix.csv")
+def create_dataframe(all_words, list_tuples, matrix):
+    data = pd.DataFrame(matrix, columns = all_words, index = list_tuples)
+    data.to_csv("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_matrix.csv")
 
 
 

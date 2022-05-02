@@ -25,23 +25,14 @@ def user_words(user):
     return list(user_word)
 
 def create_wordcloud(user, title):
-    '''
-    #wc  = WordCloud(background_color = "white", mask = mask, max_words=200, stopwords=stopwords)
-
-    wc = WordCloud(max_font_size=40).generate(user)
-    wc.generate(text)
-    wc.to_file("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json/fc_barca.png")
-
-    '''
     wc = WordCloud(max_font_size=40).generate(user)
 
-    
     plt.figure(figsize=(20, 8))
     plt.title(user)
     plt.subplot(1, 3, 1)
     plt.imshow(wc, interpolation="bilinear")
     plt.savefig(f"{title}.jpg")
-   #plt.show()
+
 
 def main():
     print("in beginning of method")

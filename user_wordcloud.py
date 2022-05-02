@@ -35,7 +35,6 @@ def create_wordcloud(user, title):
 
 
 def main():
-    print("in beginning of method")
     tweeters = get_users()
 
     for tweeter in tweeters: #iterate through list of tweeters

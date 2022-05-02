@@ -24,7 +24,7 @@ def user_words(user):
                         user_word.add(word)
     return list(user_word)
 
-def create_wordcloud(user):
+def create_wordcloud(user, title):
     '''
     #wc  = WordCloud(background_color = "white", mask = mask, max_words=200, stopwords=stopwords)
 
@@ -40,72 +40,28 @@ def create_wordcloud(user):
     plt.title(user)
     plt.subplot(1, 3, 1)
     plt.imshow(wc, interpolation="bilinear")
-    plt.show()
+    plt.savefig(f"{title}.jpg")
+   #plt.show()
 
 def main():
     print("in beginning of method")
-    tweeters=get_users()
+    tweeters = get_users()
 
-    wordlist = []
-    fcbarcelona= user_words('@fcbarcelona')
-    wordlist.append(fcbarcelona)
-    elonmusk= user_words('@elonmusk')
-    wordlist.append(elonmusk)
-    mileycyrus= user_words('@mileycyrus')
-    wordlist.append(mileycyrus)
-    britneyspears= user_words('@britneyspears')
-    wordlist.append(britneyspears)
-    ladygaga= user_words('@ladygaga')
-    wordlist.append(ladygaga)
-    championsleague= user_words('@championsleague')
-    wordlist.append(championsleague)
-    youtube= user_words('@youtube')
-    wordlist.append(youtube)
-    kimkardashian= user_words('@kimkardashian')
-    wordlist.append(kimkardashian)
-    cnn= user_words('@cnn')
-    wordlist.append(cnn)
-    ddlovato= user_words('@ddlovato')
-    wordlist.append(ddlovato)
-    sportscenter= user_words('@sportscenter')
-    wordlist.append(sportscenter)
-    barackobama= user_words( '@barackobama')
-    wordlist.append(barackobama)
-    selenagomez= user_words('@selenagomez')
-    wordlist.append(selenagomez)
-    nasa= user_words('@nasa')
-    wordlist.append(nasa)
-    jimmyfallon= user_words('@jimmyfallon')
-    wordlist.append(jimmyfallon)
-    theellenshow= user_words('@theellenshow')
-    wordlist.append(theellenshow)
-    rihanna= user_words('@rihanna')
-    wordlist.append(rihanna)
-    bbcbreaking= user_words('@bbcbreaking')
-    wordlist.append(bbcbreaking)
-    twitter= user_words('@twitter')
-    wordlist.append(twitter)
-    cnnbrk= user_words('@cnnbrk')
-    wordlist.append(cnnbrk)
-    kingjames= user_words('@kingjames')
-    wordlist.append(kingjames)
-    justinbieber= user_words('@justinbieber')
-    wordlist.append(justinbieber)
-    nytimes= user_words('@nytimes')
-    wordlist.append(nytimes)
-    niallofficial= user_words('@niallofficial')
-    wordlist.append(niallofficial)
-    katyperry= user_words('@katyperry')
-    wordlist.append(katyperry)
+    #wordlist = []
 
-    #print(wordlist[0])
-    fc_barca_string = ""
-    for word in wordlist[0]:
-        fc_barca_string += word + " "
+    #for user in tweeters:
+        #wordlist.append(user_words(user))
+
+    #fc_barca_string = ' '.join(wordlist[0])
+    #for word in wordlist[0]:
+        #fc_barca_string += word + " "
     #print(fc_barca_string)
 
+    #create_wordcloud(fc_barca_string, '@fcbarcelona')
 
-    create_wordcloud(fc_barca_string)
+    for tweeter in tweeters: #iterate through list of tweeters
+        user_string = ' '.join(user_words(tweeter))
+        create_wordcloud(user_string, tweeter)
 
 if __name__ == "__main__":
     main()

@@ -1,22 +1,22 @@
 @fcbarcelona
-positive: 0.17
-negative: 0.053
+positive: 0.171
+negative: 0.052
 neutral: 0.777
 
 @elonmusk
-positive: 0.281
-negative: 0.164
-neutral: 0.555
+positive: 0.301
+negative: 0.145
+neutral: 0.554
 
 @mileycyrus
-positive: 0.196
+positive: 0.195
 negative: 0.119
 neutral: 0.686
 
 @britneyspears
-positive: 0.237
-negative: 0.073
-neutral: 0.69
+positive: 0.234
+negative: 0.075
+neutral: 0.691
 
 @ladygaga
 positive: 0.186
@@ -29,23 +29,23 @@ negative: 0.048
 neutral: 0.799
 
 @youtube
-positive: 0.258
+positive: 0.259
 negative: 0.065
 neutral: 0.676
 
 @kimkardashian
-positive: 0.191
-negative: 0.109
+positive: 0.192
+negative: 0.108
 neutral: 0.7
 
 @cnn
-positive: 0.114
+positive: 0.113
 negative: 0.152
 neutral: 0.735
 
 @ddlovato
-positive: 0.183
-negative: 0.124
+positive: 0.184
+negative: 0.122
 neutral: 0.693
 
 @sportscenter
@@ -55,16 +55,16 @@ neutral: 0.81
 
 @barackobama
 positive: 0.175
-negative: 0.119
+negative: 0.12
 neutral: 0.706
 
 @selenagomez
-positive: 0.193
-negative: 0.091
+positive: 0.192
+negative: 0.092
 neutral: 0.716
 
 @nasa
-positive: 0.129
+positive: 0.13
 negative: 0.045
 neutral: 0.826
 
@@ -74,7 +74,7 @@ negative: 0.079
 neutral: 0.781
 
 @theellenshow
-positive: 0.184
+positive: 0.185
 negative: 0.092
 neutral: 0.723
 
@@ -84,13 +84,13 @@ negative: 0.089
 neutral: 0.758
 
 @bbcbreaking
-positive: 0.102
+positive: 0.103
 negative: 0.142
 neutral: 0.756
 
 @twitter
-positive: 0.239
-negative: 0.073
+positive: 0.238
+negative: 0.074
 neutral: 0.688
 
 @cnnbrk
@@ -104,9 +104,9 @@ negative: 0.124
 neutral: 0.704
 
 @justinbieber
-positive: 0.202
-negative: 0.083
-neutral: 0.714
+positive: 0.201
+negative: 0.085
+neutral: 0.715
 
 @nytimes
 positive: 0.106
@@ -121,5 +121,5 @@ neutral: 0.705
 @katyperry
 positive: 0.17
 negative: 0.095
-neutral: 0.735
+neutral: 0.736
 

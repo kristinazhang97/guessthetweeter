@@ -5,6 +5,7 @@ from wordcloud import WordCloud
 import  matplotlib.pylab as plt
 import numpy
 
+#returns a list of the 25 twitter users
 def get_users():
     path = "/Users/emilyyu/Desktop/Exercises/final_project_json"
     tweeters = []
@@ -13,6 +14,7 @@ def get_users():
             tweeters.append(os.path.splitext(file)[0])
     return tweeters
 
+#Returns a list of all the unique words in the users tweets
 def user_words(user):
     user_word= set()
     with open(f"/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json") as f:
@@ -24,6 +26,7 @@ def user_words(user):
                         user_word.add(word)
     return list(user_word)
 
+#Create word cloud for each user and saving them as a jpg
 def create_wordcloud(user, title):
     wc = WordCloud(max_font_size=40).generate(user)
 

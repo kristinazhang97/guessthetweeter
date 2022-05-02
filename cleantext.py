@@ -46,7 +46,7 @@ def get_tweets(user_dictionary):
         user_dictionary[user] = tweet_list
     return user_dictionary
 
-
+#returns a set of all the unique words in all of the tweets of the 25 users
 def all_words():
     all_words = set()
     with open(f"/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json") as f:
@@ -70,9 +70,7 @@ def get_tuples():
                 list_tuples.append(user_tuple)
     return list_tuples
 
-#iterating through the tuples
-#creating a list of lists of the frequencies of the words in the tweets
-
+#Create a word matrix for each of the users and their tweets
 def create_word_matrix(user_tuples, all_words):
     #user_tuples is a list of tuples with (ID, [list of words in tweet])
     user_matrix = []

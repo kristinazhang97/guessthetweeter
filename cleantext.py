@@ -97,21 +97,16 @@ def check_matrix(tuples_list, matrix):
     return status
         
 
-def create_dataframe(all_words, list_tuples):
-    data = pd.DataFrame(dictionary.values(), columns = all_words, index = list_tuples)
-    #DATA MAKE DICTIONARY 
-    #INDEX = LIST OF THE TUPLES
-    #print(data)
-    #data.to_csv("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_matrix.csv")
+def create_dataframe(all_words, list_tuples, matrix):
+    data = pd.DataFrame(matrix, columns = all_words, index = list_tuples)
+    data.to_csv("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_matrix.csv")
 
 
 def main():
     words = all_words() #columns
     tuples_list = get_tuples() #rows
-    test_list = tuples_list[0:1000]
-    matrix = create_word_matrix(test_list, words)
-    print(check_matrix(test_list, matrix))
-    #create_dataframe(all_words, tuples_list, matrix)
+    matrix = create_word_matrix(tuples_list, words)
+    create_dataframe(all_words, tuples_list, matrix)
 
     #Saved to a JSON FILE TO WORK ON EASIER
     #with open("/Users/emilyyu/Desktop/Exercises/guessthetweeter/tweeter_dictionary.json", "w") as write_file:

@@ -47,18 +47,6 @@ def main():
     print("in beginning of method")
     tweeters = get_users()
 
-    #wordlist = []
-
-    #for user in tweeters:
-        #wordlist.append(user_words(user))
-
-    #fc_barca_string = ' '.join(wordlist[0])
-    #for word in wordlist[0]:
-        #fc_barca_string += word + " "
-    #print(fc_barca_string)
-
-    #create_wordcloud(fc_barca_string, '@fcbarcelona')
-
     for tweeter in tweeters: #iterate through list of tweeters
         user_string = ' '.join(user_words(tweeter))
         create_wordcloud(user_string, tweeter)
